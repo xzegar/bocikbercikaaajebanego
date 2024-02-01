@@ -1,4 +1,4 @@
-### Importyyyy
+ ### Importyyyy
 import nextcord
 from nextcord.ext import commands
 from nextcord import Interaction, SlashOption, ChannelType
@@ -186,7 +186,7 @@ async def on_guild_channel_create(channel):
     guild = channel.guild
     async for entry in guild.audit_logs(action=nextcord.AuditLogAction.channel_create, limit=1):
         user = entry.user
-        break  # Pobierz tylko pierwszy wpis z dziennika auditowego
+        break  
 
     embed = nextcord.Embed(title="Stworzono nowy kanał tekstowy!", color=nextcord.Color.red())
     embed.add_field(name="Użytkownik", value=user.mention, inline=False)
@@ -201,12 +201,10 @@ async def on_guild_channel_delete(channel):
     log_channel = client.get_channel(log_channel_id)
 
     if log_channel:
-        # Pobierz informacje o użytkowniku, który usunął kanał
         async for entry in channel.guild.audit_logs(action=nextcord.AuditLogAction.channel_delete, limit=1):
             user = entry.user
-            break  # Pobierz tylko pierwszy wpis z dziennika auditowego
+            break  
 
-        # Stwórz i wyślij embed
         embed = nextcord.Embed(title="Usunięto kanał tekstowy!", color=nextcord.Color.red())
         embed.add_field(name="Użytkownik", value=user.mention if user else "Nieznany", inline=False)
         embed.add_field(name="Kanał", value=channel.name, inline=False)

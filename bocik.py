@@ -218,4 +218,4 @@ async def on_guild_channel_delete(channel):
 
 
 
-client.run("MTA5MzIxMTA5NDEyMzgxOTA3OQ.Gw31n7.1bs5QkmdiON75DQq18jjDOcqvO-2Ct4RsCMwWs")
+client.run("ChujciWDupeNicNieDostaniesz")
